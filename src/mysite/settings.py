@@ -98,13 +98,14 @@ USE_I18N = config.get('DJANGO', 'USE_I18N') == 'True'
 USE_TZ = config.get('DJANGO', 'USE_TZ') == 'True'
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR/'static'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR/'media'
 
 # RateLimitMiddleware
-MAX_REQUESTS_PER_WINDOW = config.get('DJANGO_MIDDLEWARE', 'MAX_REQUESTS_PER_WINDOW') 
-BLOCK_DURATION = config.get('DJANGO_MIDDLEWARE', 'BLOCK_DURATION') 
+MAX_REQUESTS_PER_WINDOW = int(config.get('DJANGO_MIDDLEWARE', 'MAX_REQUESTS_PER_WINDOW'))
+BLOCK_DURATION = int(config.get('DJANGO_MIDDLEWARE', 'BLOCK_DURATION') )
 
 # Daphne
 ASGI_APPLICATION = "mysite.asgi.application"
